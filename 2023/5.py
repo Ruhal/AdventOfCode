@@ -1,10 +1,9 @@
-import re
+import re, os
 
-input_file = open(r"input.txt"  , 'r').read().split(':')
+input_file = open(os.path.abspath(os.path.dirname( __file__ )) + r"\input.txt"  , 'r').read().split(':')
 input_file.pop(0)
 seeds = [float(x) for x in re.findall(r'(\d+)', input_file.pop(0))]
-maps=[]
-new_map = []  
+maps, new_map =[],[]
  
 for v in input_file:
     numbers = [float(x) for x in re.findall(r'(\d+)',v)]    
@@ -18,7 +17,7 @@ def pos_ran(seed,ran):
                 ran = min(ran,(map2[0] + map2[2]-seed))                                  
                 break
     return [seed, ran]
- 
+
 for i in range(int(len(seeds)/2)):
     seed = seeds[2*i] 
     seed_ran = seeds[2*i+1]
