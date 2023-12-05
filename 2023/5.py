@@ -1,6 +1,6 @@
 import re, os
 
-input_file = open(os.path.abspath(os.path.dirname( __file__ )) + r"\input.txt"  , 'r').read().split(':')
+input_file = open(os.path.abspath(os.path.dirname( __file__ )) + r"\input.txt", 'r').read().split(':')
 input_file.pop(0)
 seeds = [float(x) for x in re.findall(r'(\d+)', input_file.pop(0))]
 maps, new_map =[],[]
